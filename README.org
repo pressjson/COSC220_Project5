@@ -45,3 +45,13 @@ and then undone with DDColor.
 [[file:images/outputs/IMG_0956_ddcolor.JPEG]]
 
 To be fair to this image, it is brutal because the image is Portra 400, not a phone camera.
+
+* Setting up
+
+Hit 'em with a ~python -m venv .venv~ and then a ~source .venv/bin/activate~ and a ~pip install -r requirements.txt~ and hope for the best. Note: I have not tried this out. If you want CUDA, install PyTorch [[https://pytorch.org/get-started/locally/][from the official wiki]]. You can throw a --upgrade in the PyTorch command as well.
+
+For installing the Flux models, you have to get authenticated on their Huggingface page. Follow what the Terminal says.
+
+** Using
+
+This should just work (keyword: should). Both [[file:use_ddcolor.py]] and [[file:chat.py]] should default to using the cat picture by default with a simple ~python use_ddcolor.py~ or a ~python chat.py~.
