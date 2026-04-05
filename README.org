@@ -14,26 +14,13 @@ Yup. That's my plan.
 
 *** "bUt YoU'rE nOt AlLoWeD tO uSe ApI oR cLoUd MoDeLs FoR tHiS pRoJeCt"
 
-Shut up. I'm not. I'm using [[https://ollama.com/][Ollama]] for this.
+Shut up. I'm not. I'm using [[https://github.com/black-forest-labs/flux2][FLUX.2]] for this
 
 *** How?
 
-With [[https://github.com/ollama/ollama-python][Ollama Python Library]]. I ask the model to do the conversion, and it gives me an image. Boom. Easy.
+With [[https://github.com/huggingface/diffusers][Huggingface Diffusers]].
 
-#+begin_src python
-from ollama import chat, ChatResponse
+*** Why?
 
-response: ChatResponse = chat(model='gemma3', messages=[
-    {
-        'role': 'user',
-        'content': 'Convert this image from grayscale to color.',
-        'images': image_path,
-    }
-])
-
-with open('output.png', 'wb') as f:
-    f.write(response.image)
-#+end_src
-
-Or at least this is the plan.
+Because I /could/, for example, use [[I ask the model to do the conversion, and it gives me an image. Boom. Easy.][DDColor]] to do all of the heavy lifting and basically have a wrapper around that. But where's the fun in that?
 

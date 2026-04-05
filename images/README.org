@@ -1,0 +1,21 @@
+This is my cat. Oh, isn't he just so cute?
+
+[[file:IMG_0956.JPEG]]
+
+And how he's in greyscale using the ~skimage~ pipeline.
+
+[[file:IMG_0956_sklearn_grayscale.JPEG]]
+
+How did the models do? Well, ChatGPT did this.
+
+[[file:outputs/IMG_0956_chat.png]]
+
+DDColor did this (impressive job).
+
+[[file:outputs/IMG_0956_ddcolor.JPEG]]
+
+And Flux did not do very good at all.
+
+[[file:outputs/IMG_0956_flux_kv.JPEG]]
+
+So, takeaway? DDColor is best. But, that doesn't mean Flux isn't fun.
