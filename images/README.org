@@ -4,7 +4,7 @@ This is my cat. Oh, isn't he just so cute?
 
 [[file:IMG_0956.JPEG]]
 
-And how he's in greyscale using the ~skimage~ pipeline.
+That is taken on my beloved Canon New F-1 with the FD 50mm f/1.8 lens and Portra 400. And how he's in greyscale using the ~skimage~ pipeline.
 
 [[file:IMG_0956_sklearn_grayscale.JPEG]]
 

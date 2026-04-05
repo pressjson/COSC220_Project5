@@ -44,7 +44,7 @@ and then undone with DDColor.
 
 [[file:images/outputs/IMG_0956_ddcolor.JPEG]]
 
-To be fair to this image, it is brutal because the image is Portra 400, not a phone camera.
+To be fair to this image, it is brutal because the image is Portra 400, not a phone camera. That means the colors are not "accurate."
 
 * Setting up
 
@@ -55,3 +55,5 @@ For installing the Flux models, you have to get authenticated on their Huggingfa
 ** Using
 
 This should just work (keyword: should). Both [[file:use_ddcolor.py]] and [[file:chat.py]] should default to using the cat picture by default with a simple ~python use_ddcolor.py~ or a ~python chat.py~, and you're tech savvy enough to know how to change those to your own files, right?
+
+DDColor only needs a few GiB of VRAM (depends on image size), as it is a highly efficient model. However, Flux2 needs /a lot/ of VRAM. The current configuration uses about 21 GiB of VRAM (yikes!). I can only run it on the school's A5000.

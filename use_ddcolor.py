@@ -71,14 +71,14 @@ class DDColorPILPipeline:
 
 if __name__ == "__main__":
     pipe = DDColorPILPipeline(
-        model_name="ddcolor_artistic",
+        model_name="ddcolor_modelscope",
     )
 
     img = Image.open("images/IMG_0956_sklearn_grayscale.JPEG")
     colorized = pipe(img)
     # print("Finished colorizing the image!")
     # print(colorized)
-    save_path = "IMG_0956_ddcolor_artistic.JPEG"
+    save_path = "IMG_0956_ddcolor.JPEG"
     # print(f"Saving to {save_path}")
     colorized.save(save_path)
     # colorized.show()
