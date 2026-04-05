@@ -14,7 +14,7 @@ Yup. That's my plan.
 
 *** "bUt YoU'rE nOt AlLoWeD tO uSe ApI oR cLoUd MoDeLs FoR tHiS pRoJeCt"
 
-Shut up. I'm not. I'm using [[https://github.com/black-forest-labs/flux2][FLUX.2]] for this
+Shut up. I'm not. I'm using [[https://github.com/black-forest-labs/flux2][FLUX.2]] for this.
 
 *** How?
 
@@ -24,3 +24,24 @@ With [[https://github.com/huggingface/diffusers][Huggingface Diffusers]].
 
 Because I /could/, for example, use [[I ask the model to do the conversion, and it gives me an image. Boom. Easy.][DDColor]] to do all of the heavy lifting and basically have a wrapper around that. But where's the fun in that?
 
+** DDColor
+
+Okay, this is /actually/ how I get results done. It's just a wrapper for [[https://github.com/piddnad/DDColor][DDColor]]. That's it.
+
+* Results
+
+** On my cat
+
+See [[file:images/README.org][the Image README]] for more details, but this is what it can do to my cat
+
+[[file:images/IMG_0956.JPEG]]
+
+that becomes grayscaled
+
+[[file:images/IMG_0956_sklearn_grayscale.JPEG]]
+
+and then undone with DDColor.
+
+[[file:images/outputs/IMG_0956_ddcolor.JPEG]]
+
+To be fair to this image, it is brutal because the image is Portra 400, not a phone camera.
