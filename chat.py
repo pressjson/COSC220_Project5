@@ -5,26 +5,35 @@ from pathlib import Path
 import os
 import torch
 from PIL import Image
-from diffusers import Flux2KleinPipeline
+from diffusers import Flux2Pipeline, AutoModel
+from transformers import Mistral3ForConditionalGeneration
 
 # Model IDs. Uncomment the one you want to use.
-MODEL_ID = "black-forest-labs/FLUX.2-klein-4B"
+# MODEL_ID = "black-forest-labs/FLUX.2-klein-4B"
 # MODEL_ID = "black-forest-labs/FLUX.2-klein-9B"
 # MODEL_ID = "black-forest-labs/FLUX.2-klein-9B-KV"
-# MODEL_ID = "black-forest-labs/FLUX.2-dev"
+MODEL_ID = "diffusers/FLUX.2-dev-bnb-4bit"
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 # device = "cpu"
 
-def load_pipe() -> Flux2KleinPipeline:
-    pipe = Flux2KleinPipeline.from_pretrained(
+def load_pipe() -> Flux2Pipeline:
+    text_encoder = Mistral3ForConditionalGeneration.from_pretrained(
+        MODEL_ID, subfolder="text_encoder", torch_dtype=torch.bfloat16, device_map="cpu"
+    )
+    dit = AutoModel.from_pretrained(
+        MODEL_ID, subfolder="transformer", torch_dtype=torch.bfloat16, device_map="cpu"
+    )
+    pipe = Flux2Pipeline.from_pretrained(
         MODEL_ID,
+        text_encoder=text_encoder,
+        transformer=dit,
         torch_dtype=torch.bfloat16 if device == "cuda" else torch.float32,
     )
 
     if device == "cuda":
         # pipe = pipe.to("cuda")
-        pipe.enable_sequential_cpu_offload()  # helps when VRAM is tight
+        pipe.enable_model_cpu_offload()  # helps when VRAM is tight
     else:
         pipe = pipe.to("cpu")
 
@@ -44,7 +53,7 @@ def resize_for_flux(img: Image.Image, max_side: int = 768) -> Image.Image:
 
 
 def flux2_edit_image(
-    pipe: Flux2KleinPipeline,
+    pipe: Flux2Pipeline,
     input_img: Image.Image,
     prompt: str = (
         "Colorize this grayscale image realistically. "
@@ -83,5 +92,5 @@ if __name__ == "__main__":
         input_img=Image.open("images/IMG_0956_sklearn_grayscale.JPEG"),
         seed=42,
     )
-    img.save(os.path.join("IMG_0956_flux_4b.JPEG"))
+    img.save(os.path.join("IMG_0956_flux_dev.JPEG"))
     # img.show()
