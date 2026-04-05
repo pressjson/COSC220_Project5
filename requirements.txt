@@ -1,0 +1,10 @@
+numpy
+PIL
+scikit-image
+torch
+torchvision
+accelerate
+transformers
+sentencepiece
+safetensors
+diffusers[torch]

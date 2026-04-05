@@ -1,0 +1,39 @@
+#+title: README
+
+Project 5 for COSC 220.
+
+The goal is to make an AI model that can take greyscale images and make the colorful.
+
+* Approach
+
+Why try and make my own model in /less than one week/ when people have already done this work for me?
+
+** Asking Chat
+
+Yup. That's my plan.
+
+*** "bUt YoU'rE nOt AlLoWeD tO uSe ApI oR cLoUd MoDeLs FoR tHiS pRoJeCt"
+
+Shut up. I'm not. I'm using [[https://ollama.com/][Ollama]] for this.
+
+*** How?
+
+With [[https://github.com/ollama/ollama-python][Ollama Python Library]]. I ask the model to do the conversion, and it gives me an image. Boom. Easy.
+
+#+begin_src python
+from ollama import chat, ChatResponse
+
+response: ChatResponse = chat(model='gemma3', messages=[
+    {
+        'role': 'user',
+        'content': 'Convert this image from grayscale to color.',
+        'images': image_path,
+    }
+])
+
+with open('output.png', 'wb') as f:
+    f.write(response.image)
+#+end_src
+
+Or at least this is the plan.
+
