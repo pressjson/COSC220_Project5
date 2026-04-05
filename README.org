@@ -54,4 +54,4 @@ For installing the Flux models, you have to get authenticated on their Huggingfa
 
 ** Using
 
-This should just work (keyword: should). Both [[file:use_ddcolor.py]] and [[file:chat.py]] should default to using the cat picture by default with a simple ~python use_ddcolor.py~ or a ~python chat.py~.
+This should just work (keyword: should). Both [[file:use_ddcolor.py]] and [[file:chat.py]] should default to using the cat picture by default with a simple ~python use_ddcolor.py~ or a ~python chat.py~, and you're tech savvy enough to know how to change those to your own files, right?
